@@ -37,6 +37,26 @@ Entity {
         InputSettings { }
     ]
 
+    Entity {
+        components: [
+            DirectionalLight {
+                color: "#ffaaaa"
+                intensity: 1
+                worldDirection: Qt.vector3d(-1, -1, 0)
+            }
+        ]
+    }
+
+    Entity {
+        components: [
+            DirectionalLight {
+                color: "#aaaaff"
+                intensity: 0.2
+                worldDirection: Qt.vector3d(1, 1, 0)
+            }
+        ]
+    }
+
     DiffuseSpecularMaterial {
         id: material
     }
