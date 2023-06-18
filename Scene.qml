@@ -33,6 +33,11 @@ Entity {
                 clearColor: Qt.rgba(0, 0.5, 1, 1)
                 camera: camera
             }
+            // Even if OnDemand rendering is set, Quick items will be re-rendered indefinitely.
+            // https://bugreports.qt.io/browse/QTBUG-90856
+            // https://bugreports.qt.io/browse/QTBUG-96373
+            // https://bugreports.qt.io/browse/QTBUG-109366
+            //renderPolicy: RenderSettings.OnDemand
         },
         InputSettings { }
     ]
