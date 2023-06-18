@@ -10,7 +10,14 @@ Window {
 
     Scene3D {
         anchors.fill: parent
-        entity: Scene {}
+        entity: Scene {
+            id: scene
+        }
         aspects: ["input", "logic"]
+    }
+
+    Text {
+        color: "white"
+        text: `ambient: ${scene.material.ambient},  diffuse: ${scene.material.diffuse}, specular: ${scene.material.specular}`
     }
 }

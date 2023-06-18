@@ -8,6 +8,8 @@ import Qt3D.Input
 import Qt3D.Render
 
 Entity {
+    property alias material: material
+
     Camera {
         id: camera
         projectionType: CameraLens.PerspectiveProjection
@@ -35,7 +37,7 @@ Entity {
         InputSettings { }
     ]
 
-    PhongMaterial {
+    DiffuseSpecularMaterial {
         id: material
     }
 
