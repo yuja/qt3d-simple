@@ -57,6 +57,71 @@ Entity {
         ]
     }
 
+    Entity {
+        id: helperPlanes
+
+        // XZ plane
+        PlaneMesh {
+            id: helperPlaneMesh
+            width: 30
+            height: 30
+            primitiveType: GeometryRenderer.Lines
+            meshResolution: Qt.size(width, height)
+        }
+
+        Entity {
+            id: yzHelperPlane
+            components: [
+                helperPlaneMesh,
+                yzHelperPlaneMaterial,
+                yzHelperPlaneTransform,
+            ]
+            DiffuseSpecularMaterial {
+                id: yzHelperPlaneMaterial
+                ambient: "#ff0000"
+            }
+            Transform {
+                id: yzHelperPlaneTransform
+                // to XY plane
+                rotation: fromAxisAndAngle(Qt.vector3d(0, 0, 1), 90)
+            }
+        }
+
+        Entity {
+            id: xzHelperPlane
+            components: [
+                helperPlaneMesh,
+                xzHelperPlaneMaterial,
+                xzHelperPlaneTransform,
+            ]
+            DiffuseSpecularMaterial {
+                id: xzHelperPlaneMaterial
+                ambient: "#008000"
+            }
+            Transform {
+                id: xzHelperPlaneTransform
+            }
+        }
+
+        Entity {
+            id: xyHelperPlane
+            components: [
+                helperPlaneMesh,
+                xyHelperPlaneMaterial,
+                xyHelperPlaneTransform,
+            ]
+            DiffuseSpecularMaterial {
+                id: xyHelperPlaneMaterial
+                ambient: "#0000ff"
+            }
+            Transform {
+                id: xyHelperPlaneTransform
+                // to XY plane
+                rotation: fromAxisAndAngle(Qt.vector3d(1, 0, 0), 90)
+            }
+        }
+    }
+
     DiffuseSpecularMaterial {
         id: material
     }
