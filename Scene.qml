@@ -1,11 +1,11 @@
 // Copyright (C) 2014 Klaralvdalens Datakonsult AB (KDAB).
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
-import QtQuick
-import Qt3D.Core
-import Qt3D.Extras
-import Qt3D.Input
-import Qt3D.Render
+import QtQuick 2.15
+import Qt3D.Core 2.15
+import Qt3D.Extras 2.15
+import Qt3D.Input 2.15
+import Qt3D.Render 2.15
 
 Entity {
     property alias material: material

@@ -1,6 +1,6 @@
-import QtQuick
-import QtQuick.Scene3D
-import QtQuick.Window
+import QtQuick 2.15
+import QtQuick.Scene3D 2.15
+import QtQuick.Window 2.15
 
 Window {
     width: 640
