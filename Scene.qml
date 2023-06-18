@@ -193,8 +193,7 @@ Entity {
 
         Transform {
             id: cuboidTransform
-            scale: Qt.vector3d(3, 3, 3)
-            translation: Qt.vector3d(0, 0, -20)
+            translation: Qt.vector3d(0, 0, -10)
             // TODO: alpha pass
         }
     }
@@ -213,7 +212,7 @@ Entity {
 
     Transform {
         id: torusTransform
-        scale3D: Qt.vector3d(1.5, 1, 0.5)
+        scale3D: Qt.vector3d(1, 0.75, 0.25)
         rotation: fromAxisAndAngle(Qt.vector3d(1, 0, 0), 45)
     }
 
@@ -224,7 +223,7 @@ Entity {
 
     SphereMesh {
         id: sphereMesh
-        radius: 3
+        radius: 1
     }
 
     DiffuseSpecularMaterial {
@@ -239,7 +238,7 @@ Entity {
         matrix: {
             var m = Qt.matrix4x4();
             m.rotate(userAngle, Qt.vector3d(0, 1, 0));
-            m.translate(Qt.vector3d(20, 0, 0));
+            m.translate(Qt.vector3d(10, 0, 0));
             return m;
         }
     }
