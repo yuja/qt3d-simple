@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Scene3D
 import QtQuick.Window
 
 Window {
@@ -6,4 +7,9 @@ Window {
     height: 480
     visible: true
     title: qsTr("Hello World")
+
+    Scene3D {
+        anchors.fill: parent
+        entity: Scene {}
+    }
 }

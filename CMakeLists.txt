@@ -15,7 +15,9 @@ qt_add_executable(appqt3d-simple
 qt_add_qml_module(appqt3d-simple
     URI qt3d-simple
     VERSION 1.0
-    QML_FILES Main.qml
+    QML_FILES
+        Main.qml
+        Scene.qml
 )
 
 set_target_properties(appqt3d-simple PROPERTIES
