@@ -69,17 +69,18 @@ Entity {
             meshResolution: Qt.size(width, height)
         }
 
+        DiffuseSpecularMaterial {
+            id: helperPlaneMaterial
+            ambient: "#808080"
+        }
+
         Entity {
             id: yzHelperPlane
             components: [
                 helperPlaneMesh,
-                yzHelperPlaneMaterial,
+                helperPlaneMaterial,
                 yzHelperPlaneTransform,
             ]
-            DiffuseSpecularMaterial {
-                id: yzHelperPlaneMaterial
-                ambient: "#ff0000"
-            }
             Transform {
                 id: yzHelperPlaneTransform
                 // to XY plane
@@ -91,13 +92,9 @@ Entity {
             id: xzHelperPlane
             components: [
                 helperPlaneMesh,
-                xzHelperPlaneMaterial,
+                helperPlaneMaterial,
                 xzHelperPlaneTransform,
             ]
-            DiffuseSpecularMaterial {
-                id: xzHelperPlaneMaterial
-                ambient: "#008000"
-            }
             Transform {
                 id: xzHelperPlaneTransform
             }
@@ -107,13 +104,9 @@ Entity {
             id: xyHelperPlane
             components: [
                 helperPlaneMesh,
-                xyHelperPlaneMaterial,
+                helperPlaneMaterial,
                 xyHelperPlaneTransform,
             ]
-            DiffuseSpecularMaterial {
-                id: xyHelperPlaneMaterial
-                ambient: "#0000ff"
-            }
             Transform {
                 id: xyHelperPlaneTransform
                 // to XY plane
