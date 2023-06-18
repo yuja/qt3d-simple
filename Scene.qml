@@ -1,17 +1,13 @@
 // Copyright (C) 2014 Klaralvdalens Datakonsult AB (KDAB).
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
-import QtQuick 2.2 as QQ2
-//! [0]
-import Qt3D.Core 2.0
-import Qt3D.Render 2.0
-//! [0]
-import Qt3D.Input 2.0
-import Qt3D.Extras 2.15
+import QtQuick
+import Qt3D.Core
+import Qt3D.Extras
+import Qt3D.Input
+import Qt3D.Render
 
 Entity {
-    id: sceneRoot
-    //! [1]
     Camera {
         id: camera
         projectionType: CameraLens.PerspectiveProjection
@@ -23,11 +19,11 @@ Entity {
         upVector: Qt.vector3d( 0.0, 1.0, 0.0 )
         viewCenter: Qt.vector3d( 0.0, 0.0, 0.0 )
     }
-    //! [1]
+
     OrbitCameraController {
         camera: camera
     }
-    //! [2]
+
     components: [
         RenderSettings {
             activeFrameGraph: ForwardRenderer {
@@ -36,12 +32,8 @@ Entity {
                 showDebugOverlay: true
             }
         },
-        // Event Source will be set by the Qt3DQuickWindow
-        //! [3]
         InputSettings { }
-        //! [3]
     ]
-    //! [2]
 
     PhongMaterial {
         id: material
@@ -54,7 +46,6 @@ Entity {
         rings: 100
         slices: 20
     }
-
 
     Transform {
         id: torusTransform
@@ -83,14 +74,14 @@ Entity {
         }
     }
 
-    QQ2.NumberAnimation {
+    NumberAnimation {
         target: sphereTransform
         property: "userAngle"
         duration: 10000
         from: 0
         to: 360
 
-        loops: QQ2.Animation.Infinite
+        loops: Animation.Infinite
         running: true
     }
 
