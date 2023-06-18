@@ -11,5 +11,6 @@ Window {
     Scene3D {
         anchors.fill: parent
         entity: Scene {}
+        aspects: ["input", "logic"]
     }
 }
