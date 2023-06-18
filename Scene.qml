@@ -174,6 +174,31 @@ Entity {
         }
     }
 
+    Entity {
+        id: cuboidEntity
+        components: [
+            cuboidMesh,
+            cuboidMaterial,
+            cuboidTransform,
+        ]
+
+        CuboidMesh {
+            id: cuboidMesh
+        }
+        DiffuseSpecularMaterial {
+            id: cuboidMaterial
+            alphaBlending: true
+            diffuse: Qt.rgba(0.8, 0.8, 0.8, 0.1)
+        }
+
+        Transform {
+            id: cuboidTransform
+            scale: Qt.vector3d(3, 3, 3)
+            translation: Qt.vector3d(0, 0, -20)
+            // TODO: alpha pass
+        }
+    }
+
     DiffuseSpecularMaterial {
         id: material
     }
@@ -202,6 +227,12 @@ Entity {
         radius: 3
     }
 
+    DiffuseSpecularMaterial {
+        id: sphereMaterial
+        alphaBlending: true
+        diffuse: Qt.rgba(0.8, 0.8, 0.8, 0.5)
+    }
+
     Transform {
         id: sphereTransform
         property real userAngle: 0.0
@@ -226,6 +257,7 @@ Entity {
 
     Entity {
         id: sphereEntity
-        components: [ sphereMesh, material, sphereTransform ]
+        components: [ sphereMesh, sphereMaterial, sphereTransform ]
+        // TODO: alpha pass
     }
 }
