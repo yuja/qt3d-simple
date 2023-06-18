@@ -120,6 +120,65 @@ Entity {
                 rotation: fromAxisAndAngle(Qt.vector3d(1, 0, 0), 90)
             }
         }
+
+        CylinderMesh {
+            id: axisMesh
+            length: 20
+            radius: 0.1
+        }
+
+        Entity {
+            id: xAxis
+            components: [
+                axisMesh,
+                xAxisMaterial,
+                xAxisTransform,
+            ]
+            DiffuseSpecularMaterial {
+                id: xAxisMaterial
+                ambient: "#ff0000"
+            }
+            Transform {
+                id: xAxisTransform
+                translation: Qt.vector3d(10, 0, 0)
+                rotation: fromAxisAndAngle(Qt.vector3d(0, 0, 1), 90)
+            }
+        }
+
+        Entity {
+            id: yAxis
+            components: [
+                axisMesh,
+                yAxisMaterial,
+                yAxisTransform,
+            ]
+            DiffuseSpecularMaterial {
+                id: yAxisMaterial
+                ambient: "#008000"
+            }
+            Transform {
+                id: yAxisTransform
+                translation: Qt.vector3d(0, 10, 0)
+            }
+        }
+
+        Entity {
+            id: zAxis
+            components: [
+                axisMesh,
+                zAxisMaterial,
+                zAxisTransform,
+            ]
+            DiffuseSpecularMaterial {
+                id: zAxisMaterial
+                ambient: "#0000ff"
+            }
+            Transform {
+                id: zAxisTransform
+                translation: Qt.vector3d(0, 0, 10)
+                rotation: fromAxisAndAngle(Qt.vector3d(1, 0, 0), 90)
+            }
+        }
     }
 
     DiffuseSpecularMaterial {
