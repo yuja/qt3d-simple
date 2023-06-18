@@ -18,6 +18,9 @@ Window {
 
     Text {
         color: "white"
-        text: `ambient: ${scene.material.ambient},  diffuse: ${scene.material.diffuse}, specular: ${scene.material.specular}`
+        text: [
+            `camera.upVector: ${scene.camera.upVector}`,
+            `ambient: ${scene.material.ambient},  diffuse: ${scene.material.diffuse}, specular: ${scene.material.specular}`,
+        ].join("\n")
     }
 }

@@ -8,6 +8,7 @@ import Qt3D.Input 2.15
 import Qt3D.Render 2.15
 
 Entity {
+    property alias camera: camera
     property alias material: material
 
     Camera {
