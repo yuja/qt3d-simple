@@ -194,10 +194,16 @@ Entity {
         CuboidMesh {
             id: cuboidMesh
         }
-        DiffuseSpecularMaterial {
+        PhongAlphaMaterial {
             id: cuboidMaterial
-            alphaBlending: true
-            diffuse: Qt.rgba(0.8, 0.8, 0.8, 0.1)
+            diffuse: "#cccccc"
+            alpha: 0.1
+            // By default, alpha value is overwritten by this material, and the FBO would get
+            // translucent even if it was previously opaque. Since DiffuseSpecularMaterial
+            // doesn't provide these properties, we use PhongAlphaMaterial instead.
+            // See https://doc.qt.io/qt-6/qml-qtquick-scene3d-scene3d.html#details
+            sourceAlphaArg: BlendEquationArguments.One
+            destinationAlphaArg: BlendEquationArguments.OneMinusSourceAlpha
         }
 
         Transform {
@@ -234,10 +240,16 @@ Entity {
         radius: 1
     }
 
-    DiffuseSpecularMaterial {
+    PhongAlphaMaterial {
         id: sphereMaterial
-        alphaBlending: true
-        diffuse: Qt.rgba(0.8, 0.8, 0.8, 0.5)
+        diffuse: "#cccccc"
+        alpha: 0.5
+        // By default, alpha value is overwritten by this material, and the FBO would get
+        // translucent even if it was previously opaque. Since DiffuseSpecularMaterial
+        // doesn't provide these properties, we use PhongAlphaMaterial instead.
+        // See https://doc.qt.io/qt-6/qml-qtquick-scene3d-scene3d.html#details
+        sourceAlphaArg: BlendEquationArguments.One
+        destinationAlphaArg: BlendEquationArguments.OneMinusSourceAlpha
     }
 
     Transform {
