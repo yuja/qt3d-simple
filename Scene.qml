@@ -32,6 +32,7 @@ Entity {
     components: [
         RenderSettings {
             activeFrameGraph: SimpleForwardRenderer {
+                id: renderer
                 clearColor: Qt.rgba(0, 0.5, 1, 1)
                 camera: camera
             }
@@ -187,6 +188,7 @@ Entity {
             cuboidMesh,
             cuboidMaterial,
             cuboidTransform,
+            renderer.alphaLayer,
         ]
 
         CuboidMesh {
@@ -201,7 +203,6 @@ Entity {
         Transform {
             id: cuboidTransform
             translation: Qt.vector3d(0, 0, -10)
-            // TODO: alpha pass
         }
     }
 
@@ -260,7 +261,11 @@ Entity {
 
     Entity {
         id: sphereEntity
-        components: [ sphereMesh, sphereMaterial, sphereTransform ]
-        // TODO: alpha pass
+        components: [
+            sphereMesh,
+            sphereMaterial,
+            sphereTransform,
+            renderer.alphaLayer,
+        ]
     }
 }

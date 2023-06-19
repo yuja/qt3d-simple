@@ -13,6 +13,8 @@ TechniqueFilter {
     property alias externalRenderTargetSize: surfaceSelector.externalRenderTargetSize
     property alias frustumCulling: frustumCulling.enabled
 
+    property alias alphaLayer: alphaLayer
+
     // Select the forward rendering Technique of any used Effect
     matchAll: [ FilterKey { name: "renderingStyle"; value: "forward" } ]
 
@@ -29,13 +31,33 @@ TechniqueFilter {
                 id : cameraSelector
                 FrustumCulling {
                     id: frustumCulling
-                    ClearBuffers {
-                        id: clearBuffer
-                        clearColor: "white"
-                        buffers : ClearBuffers.ColorDepthBuffer
+
+                    // Render opaque entities, with writing into depth buffer.
+                    LayerFilter {
+                        filterMode: LayerFilter.DiscardAnyMatchingLayers
+                        layers: [alphaLayer]
+                        ClearBuffers {
+                            id: clearBuffer
+                            clearColor: "white"
+                            buffers : ClearBuffers.ColorDepthBuffer
+                        }
+                    }
+
+                    // Render non-opaque entities, without writing into depth buffer.
+                    // Depth test is still enabled.
+                    LayerFilter {
+                        filterMode: LayerFilter.AcceptAnyMatchingLayers
+                        layers: [alphaLayer]
+                        SortPolicy {
+                            sortTypes: [SortPolicy.BackToFront]
+                        }
                     }
                 }
             }
         }
+    }
+
+    Layer {
+        id: alphaLayer
     }
 }
