@@ -14,10 +14,19 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
+    Rectangle {
+        anchors.fill: parent
+        gradient: Gradient {
+            GradientStop { position: 0; color: "#0080ff" }
+            GradientStop { position: 1; color: "#000020" }
+        }
+    }
+
     Scene3D {
         anchors.fill: parent
         entity: Scene {
             id: scene
+            clearColor: "transparent"
         }
         aspects: ["input", "logic"]
     }

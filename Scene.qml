@@ -10,6 +10,7 @@ import Qt3D.Render 2.15
 Entity {
     property alias camera: camera
     property alias material: material
+    property alias clearColor: renderer.clearColor
     property alias sphereAnimationRunning: sphereAnimation.running
     property alias sphereAngle: sphereTransform.userAngle
 
