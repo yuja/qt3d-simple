@@ -1,8 +1,8 @@
 // Copyright (C) 2015 Klaralvdalens Datakonsult AB (KDAB).
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
-import Qt3D.Core 2.0
-import Qt3D.Render 2.0
+import Qt3D.Core 2.15
+import Qt3D.Render 2.15
 
 TechniqueFilter {
     // Expose camera to allow user to choose which camera to use for rendering
