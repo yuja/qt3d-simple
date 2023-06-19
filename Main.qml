@@ -59,37 +59,47 @@ Window {
         }
     }
 
-    RowLayout {
+    Pane {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
+        padding: 2
 
-        RoundButton {
-            radius: 5
-            text: "X-Y"
-            onClicked: {
-                scene.camera.upVector = Qt.vector3d(0, 1, 0);
-                scene.camera.position = Qt.vector3d(0, 0, root.defaultCameraDisplacement);
-                scene.camera.viewCenter = Qt.vector3d(0, 0, 0);
-            }
+        background: Rectangle {
+            color: "black"
+            opacity: 0.2
         }
 
-        RoundButton {
-            radius: 5
-            text: "X-Z"
-            onClicked: {
-                scene.camera.upVector = Qt.vector3d(0, 0, 1);
-                scene.camera.position = Qt.vector3d(0, root.defaultCameraDisplacement, 0);
-                scene.camera.viewCenter = Qt.vector3d(0, 0, 0);
-            }
-        }
+        RowLayout {
+            anchors.fill: parent
 
-        RoundButton {
-            radius: 5
-            text: "Z-Y"
-            onClicked: {
-                scene.camera.upVector = Qt.vector3d(0, 1, 0);
-                scene.camera.position = Qt.vector3d(root.defaultCameraDisplacement, 0, 0);
-                scene.camera.viewCenter = Qt.vector3d(0, 0, 0);
+            RoundButton {
+                radius: 5
+                text: "X-Y"
+                onClicked: {
+                    scene.camera.upVector = Qt.vector3d(0, 1, 0);
+                    scene.camera.position = Qt.vector3d(0, 0, root.defaultCameraDisplacement);
+                    scene.camera.viewCenter = Qt.vector3d(0, 0, 0);
+                }
+            }
+
+            RoundButton {
+                radius: 5
+                text: "X-Z"
+                onClicked: {
+                    scene.camera.upVector = Qt.vector3d(0, 0, 1);
+                    scene.camera.position = Qt.vector3d(0, root.defaultCameraDisplacement, 0);
+                    scene.camera.viewCenter = Qt.vector3d(0, 0, 0);
+                }
+            }
+
+            RoundButton {
+                radius: 5
+                text: "Z-Y"
+                onClicked: {
+                    scene.camera.upVector = Qt.vector3d(0, 1, 0);
+                    scene.camera.position = Qt.vector3d(root.defaultCameraDisplacement, 0, 0);
+                    scene.camera.viewCenter = Qt.vector3d(0, 0, 0);
+                }
             }
         }
     }
