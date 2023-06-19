@@ -18,7 +18,8 @@ qt_add_qml_module(appqt3d-simple
     QML_FILES
         Main.qml
         Scene.qml
-)
+        SimpleForwardRenderer.qml
+    )
 
 set_target_properties(appqt3d-simple PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
