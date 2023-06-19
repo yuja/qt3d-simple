@@ -246,17 +246,13 @@ Entity {
             m.translate(Qt.vector3d(10, 0, 0));
             return m;
         }
-    }
 
-    NumberAnimation {
-        target: sphereTransform
-        property: "userAngle"
-        duration: 10000
-        from: 0
-        to: 360
-
-        loops: Animation.Infinite
-        running: true
+        NumberAnimation on userAngle {
+            duration: 10000
+            from: 0
+            to: 360
+            loops: Animation.Infinite
+        }
     }
 
     Entity {
