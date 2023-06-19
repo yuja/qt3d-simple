@@ -198,7 +198,7 @@ Entity {
         PhongAlphaMaterial {
             id: cuboidMaterial
             diffuse: "#cccccc"
-            alpha: 0.1
+            alpha: 0.5
             // By default, alpha value is overwritten by this material, and the FBO would get
             // translucent even if it was previously opaque. Since DiffuseSpecularMaterial
             // doesn't provide these properties, we use PhongAlphaMaterial instead.
