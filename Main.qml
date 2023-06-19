@@ -22,12 +22,41 @@ Window {
         aspects: ["input", "logic"]
     }
 
-    Text {
-        color: "white"
-        text: [
-            `camera.position: ${scene.camera.position}, camera.upVector: ${scene.camera.upVector}, camera.viewCenter: ${scene.camera.viewCenter}`,
-            `ambient: ${scene.material.ambient},  diffuse: ${scene.material.diffuse}, specular: ${scene.material.specular}`,
-        ].join("\n")
+    Pane {
+        anchors.left: parent.left
+        anchors.top: parent.top
+        padding: 2
+
+        background: Rectangle {
+            color: "black"
+            opacity: 0.2
+        }
+
+        RowLayout {
+            anchors.fill: parent
+
+            Slider {
+                enabled: !scene.sphereAnimationRunning
+                from: 0
+                to: 360
+                value: scene.sphereAngle
+                onMoved: scene.sphereAngle = value
+            }
+
+            CheckBox {
+                checked: scene.sphereAnimationRunning
+                onClicked: scene.sphereAnimationRunning = checked
+                text: "Animated"
+            }
+
+            Text {
+                color: "white"
+                text: [
+                    `camera.position: ${scene.camera.position}, camera.upVector: ${scene.camera.upVector}, camera.viewCenter: ${scene.camera.viewCenter}`,
+                    `ambient: ${scene.material.ambient},  diffuse: ${scene.material.diffuse}, specular: ${scene.material.specular}`,
+                ].join("\n")
+            }
+        }
     }
 
     RowLayout {

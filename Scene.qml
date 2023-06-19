@@ -10,6 +10,8 @@ import Qt3D.Render 2.15
 Entity {
     property alias camera: camera
     property alias material: material
+    property alias sphereAnimationRunning: sphereAnimation.running
+    property alias sphereAngle: sphereTransform.userAngle
 
     Camera {
         id: camera
@@ -248,6 +250,7 @@ Entity {
         }
 
         NumberAnimation on userAngle {
+            id: sphereAnimation
             duration: 10000
             from: 0
             to: 360
