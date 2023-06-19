@@ -62,7 +62,6 @@ Window {
                 color: "white"
                 text: [
                     `camera.position: ${scene.camera.position}, camera.upVector: ${scene.camera.upVector}, camera.viewCenter: ${scene.camera.viewCenter}`,
-                    `ambient: ${scene.material.ambient},  diffuse: ${scene.material.diffuse}, specular: ${scene.material.specular}`,
                 ].join("\n")
             }
         }

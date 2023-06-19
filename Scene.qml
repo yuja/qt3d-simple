@@ -9,7 +9,6 @@ import Qt3D.Render 2.15
 
 Entity {
     property alias camera: camera
-    property alias material: material
     property alias clearColor: renderer.clearColor
     property alias sphereAnimationRunning: sphereAnimation.running
     property alias sphereAngle: sphereTransform.userAngle
@@ -214,7 +213,7 @@ Entity {
     }
 
     DiffuseSpecularMaterial {
-        id: material
+        id: torusMaterial
     }
 
     TorusMesh {
@@ -233,7 +232,7 @@ Entity {
 
     Entity {
         id: torusEntity
-        components: [ torusMesh, material, torusTransform ]
+        components: [ torusMesh, torusMaterial, torusTransform ]
     }
 
     SphereMesh {
